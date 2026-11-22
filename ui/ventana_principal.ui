@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1180</width>
+    <height>760</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Método de Bisección - Cálculo Numérico (Grupo 5: Paracaidista)</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayoutMain">
+    <item>
+     <widget class="QTabWidget" name="tabPrincipal">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tabMetodo">
+       <attribute name="title">
+        <string>Método de Bisección</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayoutMetodo">
+        <item>
+         <widget class="QWidget" name="panelIzquierdo" native="true">
+          <property name="maximumSize">
+           <size>
+            <width>390</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayoutIzq">
+           <item>
+            <widget class="QGroupBox" name="grpEjemplos">
+             <property name="title">
+              <string>Casos Precargados</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayoutEj">
+              <item>
+               <widget class="QComboBox" name="cmbEjemplos">
+                <item>
+                 <property name="text">
+                  <string>Caso Grupo 5: Paracaidista (arrastre c)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ejemplo Libro: f(x) = exp(-x) - x</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Personalizado</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="grpParametros">
+             <property name="title">
+              <string>Parámetros de Entrada</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayoutParams">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lblFuncion">
+                <property name="text">
+                 <string>Función f(x):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="txtFuncion">
+                <property name="placeholderText">
+                 <string>Ej: (9.81*68.1/x)*(1-exp(-(x/68.1)*10))-40</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="lblXl">
+                <property name="text">
+                 <string>Límite inferior (xl):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QDoubleSpinBox" name="spnXl">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+                <property name="minimum">
+                 <double>-100000.000000</double>
+                </property>
+                <property name="maximum">
+                 <double>100000.000000</double>
+                </property>
+                <property name="value">
+                 <double>12.000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="lblXu">
+                <property name="text">
+                 <string>Límite superior (xu):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QDoubleSpinBox" name="spnXu">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+                <property name="minimum">
+                 <double>-100000.000000</double>
+                </property>
+                <property name="maximum">
+                 <double>100000.000000</double>
+                </property>
+                <property name="value">
+                 <double>20.000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="lblEs">
+                <property name="text">
+                 <string>Tolerancia εs (%):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QDoubleSpinBox" name="spnEs">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+                <property name="minimum">
+                 <double>0.000001</double>
+                </property>
+                <property name="maximum">
+                 <double>100.000000</double>
+                </property>
+                <property name="value">
+                 <double>0.500000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="lblMaxIter">
+                <property name="text">
+                 <string>Máx. iteraciones:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QSpinBox" name="spnMaxIter">
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>1000</number>
+                </property>
+                <property name="value">
+                 <number>50</number>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="lblVVerdadero">
+                <property name="text">
+                 <string>Valor verdadero (opc.):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLineEdit" name="txtValorVerdadero">
+                <property name="placeholderText">
+                 <string>Opcional (ej: 14.8011)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="lblUnidades">
+                <property name="text">
+                 <string>Unidades físicas:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLineEdit" name="txtUnidades">
+                <property name="text">
+                 <string>kg/s</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="grpIncremental">
+             <property name="title">
+              <string>Método Gráfico / Búsqueda Incremental</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayoutInc">
+              <item>
+               <widget class="QLabel" name="lblDeltaX">
+                <property name="text">
+                 <string>Paso Δx:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="spnDeltaX">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+                <property name="minimum">
+                 <double>0.000100</double>
+                </property>
+                <property name="maximum">
+                 <double>1000.000000</double>
+                </property>
+                <property name="value">
+                 <double>1.000000</double>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnBuscarIntervalos">
+                <property name="text">
+                 <string>Sugerir Intervalos</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayoutBotones">
+             <item>
+              <widget class="QPushButton" name="btnCalcular">
+               <property name="text">
+                <string>Calcular</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnLimpiar">
+               <property name="text">
+                <string>Limpiar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnExportar">
+               <property name="text">
+                <string>Exportar CSV</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="grpResultados">
+             <property name="title">
+              <string>Resumen de Resultados</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayoutRes">
+              <item>
+               <widget class="QTextEdit" name="txtResultadoFinal">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="panelDerecho" native="true">
+          <layout class="QVBoxLayout" name="verticalLayoutDer">
+           <item>
+            <widget class="QTabWidget" name="tabGraficas">
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="tabGraficaFuncion">
+              <attribute name="title">
+               <string>Gráfica f(x) y Raíz</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayoutGraf1">
+               <item>
+                <widget class="QWidget" name="widgetGrafica" native="true"/>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tabGraficaError">
+              <attribute name="title">
+               <string>Convergencia del Error (εa)</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayoutGraf2">
+               <item>
+                <widget class="QWidget" name="widgetGraficaError" native="true"/>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTableWidget" name="tablaResultados">
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabAcercaDe">
+       <attribute name="title">
+        <string>Acerca de / Caso de Estudio</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutAcerca">
+        <item>
+         <widget class="QTextEdit" name="txtAcercaDe">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;/head&gt;&lt;body style=" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;"&gt;
+&lt;h2&gt;Proyecto de Aula: Cálculo Numérico (MECATR24)&lt;/h2&gt;
+&lt;p&gt;&lt;b&gt;Asignatura:&lt;/b&gt; Cálculo Numérico - Quinto Nivel, Ingeniería Mecatrónica&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Unidad 1:&lt;/b&gt; Software para cálculo numérico, teoría del error y ecuaciones no lineales&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Grupo 5 - Proyecto B:&lt;/b&gt; Método de Bisección aplicado al cálculo del coeficiente de arrastre de un paracaidista.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Integrantes:&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Integrante 1: Jordy Aaron García García (Lógica numérica / Integración)&lt;/li&gt;
+&lt;li&gt;Integrante 2: [Nombre Integrante 2] (Diseño Qt Designer / Gráficas)&lt;/li&gt;
+&lt;li&gt;Integrante 3: [Nombre Integrante 3] (Validación / Documentación / Pruebas)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr/&gt;
+&lt;h3&gt;Descripción Física del Caso de Aplicación (Grupo 5)&lt;/h3&gt;
+&lt;p&gt;Un paracaidista de masa &lt;b&gt;m = 68.1 kg&lt;/b&gt; salta en caída libre bajo la acción de la gravedad (&lt;b&gt;g = 9.81 m/s²&lt;/b&gt;). La velocidad descendente en función del tiempo está gobernada por:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;v(t) = (g · m / c) · (1 - e^(-(c/m)·t))&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Se requiere determinar el coeficiente de arrastre aerodinámico &lt;b&gt;c (en kg/s)&lt;/b&gt; necesario para que en &lt;b&gt;t = 10 s&lt;/b&gt; el paracaidista alcance una velocidad de &lt;b&gt;v = 40 m/s&lt;/b&gt;, lo que equivale a hallar la raíz de:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;f(c) = (9.81 · 68.1 / c) · (1 - e^(-(c/68.1)·10)) - 40 = 0&lt;/code&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
